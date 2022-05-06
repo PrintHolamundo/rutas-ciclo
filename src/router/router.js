@@ -1,4 +1,4 @@
-import {createRouter,createWebHashHistory} from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 // import AboutPage from '../modules/pokemon/pages/AboutPage.vue'
 // import ListPage from '../modules/pokemon/pages/ListPage.vue'
@@ -8,20 +8,24 @@ import {createRouter,createWebHashHistory} from 'vue-router'
 
 const routes = [
     {
-        path: '/', 
+        path: '/',
         component: () => import('../modules/pokemon/pages/ListPage.vue'),
     },
     {
-        path: '/about', 
+        path: '/about',
         component: () => import(/*webpackChunkName: 'AboutPage'*/'@/modules/pokemon/pages/AboutPage')
     },
     {
         path: '/:id',
         name: 'pokemon-id',
-        component: () => import(/*webpackChunkName: 'PokemonPage'*/'@/modules/pokemon/pages/PokemonPage')
+        component: () => import(/*webpackChunkName: 'PokemonPage'*/'@/modules/pokemon/pages/PokemonPage'),
+        props: (route) => {
+            const id = Number(route.params.id)
+            return isNaN(id) ? { id: 1 } : { id }
+        }
     },
     {
-        path: '/:pathMatch(.*)*', 
+        path: '/:pathMatch(.*)*',
         component: () => import(/*webpackChunkName: 'NoPageFound'*/'@/modules/shared/pages/NoPageFound')
     },
 ]

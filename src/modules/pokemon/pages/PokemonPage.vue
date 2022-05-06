@@ -13,12 +13,12 @@ export default {
     },
     data() {
         return {
-            // pokemon: null
+            // id: this.$route.params.id
         }
     },
     created() {
-       const {id} = this.$route.params
-         this.id = id
+    //    const {id} = this.$route.params
+    //      this.id = id
     },
 }
 </script>
