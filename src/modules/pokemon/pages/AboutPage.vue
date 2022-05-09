@@ -3,61 +3,65 @@
     <hr>
     <h2>{{ name }}</h2>
     <button @click="onChangeName">
-        Cambiar nombre 
+        Cambiar nombre
     </button>
 </template>
 
 
 <script>
 export default {
+
     data() {
         return {
-            name: 'David'
+            name: 'Fernando'
         }
     },
     methods: {
         onChangeName() {
-            this.name = 'Daniela'
+            this.name = 'Melissa'
         }
     },
+
     beforeCreate() {
-        console.log('AboutPage - beforeCreate');
+        console.log('beforeCreate')
     },
     created() {
-        console.log('AboutPage - created');
+        this.name = 'Juan Carlos'
+        console.log('created')
+        // Peticiones HTTP
     },
     beforeMount() {
-        console.log('AboutPage - beforeMount');
+        console.log('beforeMount')
     },
     mounted() {
-        console.log('AboutPage - mounted');
+        console.log('mounted')
     },
     beforeUpdate() {
-        console.log('AboutPage - beforeUpdate');
+        console.log('beforeUpdate')
     },
     updated() {
-        console.log('AboutPage - updated');
+        console.log('updated')
     },
-    active() {
-        console.log('AboutPage - active');
-    },  
+    activated() {
+        console.log('activated')
+    },
     deactivated() {
-        console.log('AboutPage - deactivated');
+        console.log('deactivated')
     },
     beforeUnmount() {
-        console.log('AboutPage - beforeUnmount');
+        console.log('beforeUnmount')
     },
     unmounted() {
-        console.log('AboutPage - unmounted');
+        console.log('unmounted')
     },
     errorCaptured() {
-        console.log('AboutPage - errorCaptured');
+        console.log('errorCaptured')
     },
     renderTracked() {
-        console.log('AboutPage - renderTracked');
+        console.log('renderTracked')
     },
     renderTriggered() {
-        console.log('AboutPage - renderTriggered');
+        console.log('renderTriggered')
     },
 }
 </script>
